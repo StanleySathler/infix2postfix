@@ -9,7 +9,7 @@
  * @brief: Check if symbol is an operator.
  */
 int
-get_operator(int operator)
+is_operator(int operator)
 {
   int multiplication = 42;
   int sum = 43;
@@ -21,19 +21,19 @@ get_operator(int operator)
     operator == sum ||
     operator == subtraction ||
     operator == division
-  ) ? operator : 0;
+  );
 }
 
 /**
  * @brief: Check if symbol is an operand.
  */
 int
-get_operand(int operand)
+is_operand(int operand)
 {
   return (
     operand > 47 &&
     operand < 58
-  ) ? operand : 0;
+  );
 }
 
 /**
@@ -49,11 +49,11 @@ postfix_encode(char* expression)
   for (int i = 0; expression[i]; i++) {
 
     /* For an operand, append it onto postfix expression */
-    if (get_operand(expression[i]))
+    if (is_operand(expression[i]))
       postfix[len_postfix++] = expression[i];
 
     /* For an operator, push it into operators stack */
-    else if (get_operator(expression[i]))
+    else if (is_operator(expression[i]))
       stack_push(&operators, expression[i]);
 
     /* For an opening round bracket, just ignore it */
@@ -65,7 +65,7 @@ postfix_encode(char* expression)
       postfix[len_postfix++] = stack_pop(&operators);
   }
 
-  /* Finish postfix text with a null char */
+  /* Finish postfix string with a null char */
   postfix[len_postfix] = '\0';
 
   return postfix;
