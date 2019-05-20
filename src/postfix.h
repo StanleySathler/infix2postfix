@@ -5,13 +5,19 @@
    * @brief: Check if symbol is an operator.
    */
   int
-  get_operator(int operator);
+  is_operator(int operator);
 
   /**
    * @brief: Check if symbol is an operand.
    */
   int
-  get_operand(int operand);
+  is_operand(int operand);
+
+  /**
+   * @brief: Check the priority of the given operator.
+   */
+  int
+  priority(int operator);
 
   /**
    * @brief: Encode an expression to a postfix one.
