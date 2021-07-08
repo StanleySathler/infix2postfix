@@ -8,7 +8,7 @@
 /**
  * @brief: Check if symbol is an operator.
  */
-int
+static int
 is_operator(int operator)
 {
   int multiplication = 42;
@@ -27,7 +27,7 @@ is_operator(int operator)
 /**
  * @brief: Check if symbol is an operand.
  */
-int
+static int
 is_operand(int operand)
 {
   return (
@@ -39,7 +39,7 @@ is_operand(int operand)
 /**
  * @brief: Check the priority of the given operator.
  */
-int
+static int
 priority(int operator)
 {
   switch (operator) {
